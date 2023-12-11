@@ -9,11 +9,12 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private float movespeed;
     [SerializeField] private Transform target;
+    public Health health { get; private set; }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        health = GetComponent<Health>();
     }
 
     // Update is called once per frame
@@ -23,4 +24,13 @@ public class Enemy : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, target.position, step);
     }
 
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        var player = other.GetComponent<Player>();
+        if (player != null)
+        {
+            player.health.TakeDamage(1);
+        }
+        Destroy(gameObject);
+    }
 }
