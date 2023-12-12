@@ -8,7 +8,7 @@ using UnityEngine.Serialization;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private float movespeed;
-    [SerializeField] private Transform target;
+    [SerializeField] private Vector3 target;
     public Health health { get; private set; }
 
     // Start is called before the first frame update
@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         var step = movespeed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, target.position, step);
+        transform.position = Vector3.MoveTowards(transform.position, target, step);
     }
 
     private void OnTriggerStay2D(Collider2D other)
@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour
         if (player != null)
         {
             player.health.TakeDamage(1);
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
     }
 }
