@@ -4,17 +4,15 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     [SerializeField] private float interval;
-    [SerializeField] private GameObject spawnee;
-    private float _spawnZoneTop, _spawnZoneBottom;
+    [SerializeField] private Enemy spawnee;
+    private Vector3[] _spawnBoxCorners;
     private float _timeUntilSpawn;
 
     private void Awake()
     {
         var rectTransform = GetComponent<RectTransform>();
-        var corners = new Vector3[4];
-        rectTransform.GetWorldCorners(corners);
-        _spawnZoneBottom = corners[0].y;
-        _spawnZoneTop = corners[2].y;
+        _spawnBoxCorners = new Vector3[4];
+        rectTransform.GetWorldCorners(_spawnBoxCorners);
     }
 
     // Start is called before the first frame update
@@ -28,8 +26,8 @@ public class Spawner : MonoBehaviour
         _timeUntilSpawn -= Time.deltaTime;
         if (_timeUntilSpawn <= 0)
         {
-            var spawnY = Random.Range(_spawnZoneBottom, _spawnZoneTop);
-            var spawnX = transform.position.x;
+            var spawnY = Random.Range(_spawnBoxCorners[0].y, _spawnBoxCorners[2].y);
+            var spawnX = Random.Range(_spawnBoxCorners[0].x, _spawnBoxCorners[2].x);
             Spawn(new Vector3(spawnX, spawnY));
             _timeUntilSpawn = interval;
         }
