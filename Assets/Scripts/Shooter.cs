@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Shooter : MonoBehaviour
@@ -9,12 +7,12 @@ public class Shooter : MonoBehaviour
     private float _timeUntilShot;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         _timeUntilShot -= Time.deltaTime;
         if (_timeUntilShot <= 0)
@@ -24,7 +22,7 @@ public class Shooter : MonoBehaviour
         }
     }
 
-    void Shoot()
+    private void Shoot()
     {
         // just randomly shoots for now, can make targeting later
         Instantiate(proj);

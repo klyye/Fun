@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movespeed: 1
-  target: {fileID: 0}
+  target: {x: 0, y: 0, z: 0}
 --- !u!61 &1165143237646551189
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa05202cfe0b113439393f147bf8cfd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 10
+  startingHealth: 3
   slider: {fileID: 8433495268796784353}
 --- !u!50 &3796680910782019727
 Rigidbody2D:

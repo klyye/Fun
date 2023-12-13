@@ -1,22 +1,30 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 [RequireComponent(typeof(Health))]
 public class Player : MonoBehaviour
 {
-    public Health health { get; private set; }
+    public Health Health { get; private set; }
 
     private void Awake()
     {
-        health = GetComponent<Health>();
-        health.OnDeath += QuitGame;
+        Health = GetComponent<Health>();
+        Health.OnDeath += QuitGame;
+    }
+
+
+    // Start is called before the first frame update
+    private void Start()
+    {
+    }
+
+    // Update is called once per frame
+    private void Update()
+    {
     }
 
     /// <summary>
-    /// https://discussions.unity.com/t/application-quit-not-working/130493/6
+    ///     https://discussions.unity.com/t/application-quit-not-working/130493/6
     /// </summary>
     private static void QuitGame()
     {
@@ -24,20 +32,9 @@ public class Player : MonoBehaviour
 #if UNITY_EDITOR
         // Application.Quit() does not work in the editor so
         // UnityEditor.EditorApplication.isPlaying need to be set to false to end the game
-        UnityEditor.EditorApplication.isPlaying = false;
+        EditorApplication.isPlaying = false;
 #else
         Application.Quit();
 #endif
-    }
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
     }
 }

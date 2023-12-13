@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -10,19 +8,17 @@ public class Projectile : MonoBehaviour
 
     private void Awake()
     {
-        StartCoroutine(DestroyAfterSeconds(lifetime));
-    }
-
-    IEnumerator DestroyAfterSeconds(float seconds)
-    {
-        yield return new WaitForSeconds(seconds);
-        Destroy(gameObject);
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         transform.position += transform.up * (Time.deltaTime * movespeed);
+        lifetime -= Time.deltaTime;
+        if (lifetime <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -30,8 +26,10 @@ public class Projectile : MonoBehaviour
         var enemy = other.GetComponent<Enemy>();
         if (enemy != null)
         {
-            enemy.health.TakeDamage(1);
+            enemy.Health.TakeDamage(1);
             Destroy(gameObject);
         }
     }
+
+
 }

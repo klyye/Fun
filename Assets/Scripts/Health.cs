@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,8 +9,6 @@ public class Health : MonoBehaviour
 
     private int _health;
 
-    public event Action OnDeath;
-
     private void Awake()
     {
         _health = startingHealth;
@@ -21,22 +17,21 @@ public class Health : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
     }
+
+    public event Action OnDeath;
 
     public void TakeDamage(int damage)
     {
         _health -= damage;
         slider.value = _health;
-        if (_health <= 0)
-        {
-            OnDeath?.Invoke();
-        }
+        if (_health <= 0) OnDeath?.Invoke();
     }
 }

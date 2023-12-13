@@ -1,24 +1,21 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 [RequireComponent(typeof(Health))]
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private float movespeed;
     [SerializeField] private Vector3 target;
-    public Health health { get; private set; }
+    public Health Health { get; private set; }
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        health = GetComponent<Health>();
+        Health = GetComponent<Health>();
+        Health.OnDeath += () => { Destroy(gameObject); };
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         var step = movespeed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, target, step);
@@ -29,7 +26,7 @@ public class Enemy : MonoBehaviour
         var player = other.GetComponent<Player>();
         if (player != null)
         {
-            player.health.TakeDamage(1);
+            player.Health.TakeDamage(1);
             Destroy(gameObject);
         }
     }
