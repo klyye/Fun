@@ -1,10 +1,12 @@
+using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Projectile : MonoBehaviour
 {
     [SerializeField] private float movespeed;
-    [SerializeField] private float lifetime;
+    [SerializeField] private float duration;
 
     private void Awake()
     {
@@ -14,10 +16,20 @@ public class Projectile : MonoBehaviour
     private void Update()
     {
         transform.position += transform.up * (Time.deltaTime * movespeed);
-        lifetime -= Time.deltaTime;
-        if (lifetime <= 0)
+        duration -= Time.deltaTime;
+        var untilNextSec = duration - (int)duration;
+        if (duration <= 0)
         {
             Destroy(gameObject);
+        }
+        // Close to 1 second mark or 0.5 second mark
+        else if (untilNextSec <= double.Epsilon ||
+                 (untilNextSec - 0.5 > 0 && untilNextSec - 0.5 <= double.Epsilon))
+        {
+            var radius = 5f;
+            // TODO: finish this
+            var hitInfo = Physics2D.CircleCast(transform.position, radius, transform.eulerAngles);
+
         }
     }
 
@@ -31,5 +43,5 @@ public class Projectile : MonoBehaviour
         }
     }
 
-
+// TODO: heat seeking missiles with https://docs.unity3d.com/ScriptReference/Physics.SphereCast.html
 }

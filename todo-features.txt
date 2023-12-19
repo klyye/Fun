@@ -1,0 +1,14 @@
+- scaling difficulty with time
+    - or maybe make difficulty controlled by modifiers?
+- gold, shop
+- UI for gold
+- UI for shop
+- UI for main menu
+- upgrades to purchase
+    - heat seeking missiles
+    - ring of fire
+    - exploding mines
+    - slowing field
+    - numerical upgrades like attack speed, damage, etc
+- different enemies
+    - boss enemies

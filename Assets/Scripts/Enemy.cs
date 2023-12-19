@@ -3,6 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(Health))]
 public class Enemy : MonoBehaviour
 {
+    public const string LAYER_NAME = "Enemy";
     [SerializeField] private float movespeed;
     [SerializeField] private Vector3 target;
     public Health Health { get; private set; }

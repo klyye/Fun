@@ -27,6 +27,6 @@ public class Shooter : MonoBehaviour
         // just randomly shoots for now, can make targeting later
         Instantiate(proj);
         // TODO: turn towards closest enemy?
-        proj.transform.Rotate(0, 0, Random.Range(0f, 360f));
+        // proj.transform.Rotate(0, 0, Random.Range(0f, 360f));
     }
 }
