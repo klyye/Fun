@@ -845,7 +845,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   proj: {fileID: 580302458963753556, guid: 4f0026dc8ed95fa4a865424ef719ba94, type: 3}
-  interval: 0.1
+  interval: 0.3
 --- !u!1 &1884878677
 GameObject:
   m_ObjectHideFlags: 0
