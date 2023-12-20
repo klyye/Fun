@@ -6,13 +6,20 @@ public class Enemy : MonoBehaviour
     public const string LAYER_NAME = "Enemy";
     [SerializeField] private float movespeed;
     [SerializeField] private Vector3 target;
+    [SerializeField] private int bounty;
     public Health Health { get; private set; }
 
     // Start is called before the first frame update
     private void Start()
     {
         Health = GetComponent<Health>();
-        Health.OnDeath += () => { Destroy(gameObject); };
+        Health.OnDeath += Die;
+    }
+
+    private void Die()
+    {
+        Shop.Gold += bounty;
+        Destroy(gameObject);
     }
 
     // Update is called once per frame

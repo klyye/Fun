@@ -103,6 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movespeed: 1
   target: {x: 0, y: 0, z: 0}
+  bounty: 1
 --- !u!61 &1165143237646551189
 BoxCollider2D:
   m_ObjectHideFlags: 0
