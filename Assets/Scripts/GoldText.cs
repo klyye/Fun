@@ -8,6 +8,7 @@ using UnityEngine;
 public class GoldText : MonoBehaviour
 {
     private TMP_Text _text;
+    [SerializeField] private Shop shop;
     private void Awake()
     {
         _text = GetComponent<TMP_Text>();
@@ -16,6 +17,6 @@ public class GoldText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _text.text = "Gold: " + Shop.Gold;
+        _text.text = "Gold: " + GlobalVars.gold;
     }
 }

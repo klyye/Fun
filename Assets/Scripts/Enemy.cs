@@ -18,7 +18,9 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
-        Shop.Gold += bounty;
+        // TODO: Bounty component?
+        GlobalVars.gold += bounty;
+        Debug.Log("count");
         Destroy(gameObject);
     }
 

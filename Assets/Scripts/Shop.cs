@@ -5,21 +5,9 @@ using UnityEngine;
 
 public class Shop : MonoBehaviour
 {
-    public static Shop inst;
-    public static int Gold;
+    // TODO: Gold component?
 
     private void Awake()
     {
-        if (inst == null)
-        {
-            inst = this;
-            Gold = 0;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
     }
-
-
 }
