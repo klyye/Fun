@@ -19,7 +19,7 @@ public class Enemy : MonoBehaviour
     private void Die()
     {
         // TODO: Bounty component?
-        GlobalVars.gold += bounty;
+        GameManager.gold += bounty;
         Debug.Log("count");
         Destroy(gameObject);
     }

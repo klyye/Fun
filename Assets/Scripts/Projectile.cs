@@ -14,8 +14,7 @@ public class Projectile : MonoBehaviour
 
     private void Awake()
     {
-        _target = SeekTarget(13, 0, Enemy.LAYER_NAME);
-        heatSeeking = false;
+        transform.up = UnityEngine.Random.insideUnitCircle;
     }
 
     private Transform SeekTarget(float radius, float dist, string layerName)
@@ -36,7 +35,7 @@ public class Projectile : MonoBehaviour
         }
         else if (heatSeeking)
         {
-            _target = SeekTarget(13, 0, Enemy.LAYER_NAME);
+            _target = SeekTarget(3, 0, Enemy.LAYER_NAME);
         }
 
         transform.position += transform.up * (Time.deltaTime * movespeed);

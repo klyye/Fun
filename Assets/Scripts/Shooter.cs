@@ -4,7 +4,10 @@ public class Shooter : MonoBehaviour
 {
     [SerializeField] private Projectile proj;
     [SerializeField] private float interval;
-    private float _timeUntilShot;
+    private float _shotTimer;
+    public bool doubleShot;
+    public bool heatSeekingShot;
+    public bool piercingShot;
 
     // Start is called before the first frame update
     private void Start()
@@ -14,16 +17,22 @@ public class Shooter : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        _timeUntilShot -= Time.deltaTime;
-        if (_timeUntilShot <= 0)
+        _shotTimer -= Time.deltaTime;
+        if (_shotTimer <= 0)
         {
-            _timeUntilShot = interval;
+            _shotTimer = interval;
             Shoot();
+            if (doubleShot)
+            {
+                Invoke(nameof(Shoot), 0.1f);
+            }
         }
     }
 
     private void Shoot()
     {
-        Instantiate(proj);
+        var shot = Instantiate(proj);
+        shot.heatSeeking = heatSeekingShot;
     }
+
 }
