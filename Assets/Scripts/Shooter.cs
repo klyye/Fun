@@ -33,6 +33,7 @@ public class Shooter : MonoBehaviour
     {
         var shot = Instantiate(proj);
         shot.heatSeeking = heatSeekingShot;
+        shot.piercing = piercingShot;
     }
 
 }

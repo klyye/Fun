@@ -9,6 +9,7 @@ public class Projectile : MonoBehaviour
     [SerializeField] private float duration;
     [SerializeField] private int damage;
     public bool heatSeeking;
+    public bool piercing;
 
     private Transform _target;
 
@@ -22,7 +23,7 @@ public class Projectile : MonoBehaviour
         var tf = transform;
         var layerMask = 1 << LayerMask.NameToLayer(layerName);
         var hitInfo = Physics2D.CircleCast(
-            tf.position, radius, tf.eulerAngles,  dist, layerMask);
+            tf.position, radius, tf.eulerAngles, dist, layerMask);
         return hitInfo.transform;
     }
 
@@ -52,7 +53,15 @@ public class Projectile : MonoBehaviour
         if (enemy != null)
         {
             enemy.Health.TakeDamage(damage);
-            Destroy(gameObject);
+            if (piercing)
+            {
+                _target = null;
+                heatSeeking = false;
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }
