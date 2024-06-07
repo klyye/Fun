@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Shop : MonoBehaviour
 {
-    // TODO: Gold component?
     private Shooter _shooter;
 
     private void Start()
@@ -13,18 +12,30 @@ public class Shop : MonoBehaviour
         _shooter = GameManager.player.GetComponent<Shooter>();
     }
 
-    public void UpgradeDoubleShot()
+    public void UpgradeDoubleShot(int cost)
     {
-        _shooter.doubleShot = true;
+        if (GameManager.gold >= cost)
+        {
+            GameManager.gold -= cost;
+            _shooter.doubleShot = true;
+        }
     }
 
-    public void UpgradePiercingShot()
+    public void UpgradePiercingShot(int cost)
     {
-        _shooter.piercingShot = true;
+        if (GameManager.gold >= cost)
+        {
+            GameManager.gold -= cost;
+            _shooter.piercingShot = true;
+        }
     }
 
-    public void UpgradeHeatSeekingShot()
+    public void UpgradeHeatSeekingShot(int cost)
     {
-        _shooter.heatSeekingShot = true;
+        if (GameManager.gold >= cost)
+        {
+            GameManager.gold -= cost;
+            _shooter.heatSeekingShot = true;
+        }
     }
 }

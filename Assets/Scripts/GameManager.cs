@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static int gold = 0;
+    public static int gold = 10;
 
     public static Player player;
 
