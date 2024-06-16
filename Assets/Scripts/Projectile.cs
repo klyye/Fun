@@ -16,6 +16,11 @@ public class Projectile : MonoBehaviour
     private void Awake()
     {
         transform.up = UnityEngine.Random.insideUnitCircle;
+        // TODO THIS DOESNT WORK, HEATSEEKING ISNT SET UNTIL AFTER AWAKE
+        if (heatSeeking)
+        {
+            _target = SeekTarget(4, 0, Enemy.LAYER_NAME);
+        }
     }
 
     private Transform SeekTarget(float radius, float dist, string layerName)
@@ -33,10 +38,6 @@ public class Projectile : MonoBehaviour
         if (_target)
         {
             transform.up = _target.position - transform.position;
-        }
-        else if (heatSeeking)
-        {
-            _target = SeekTarget(3, 0, Enemy.LAYER_NAME);
         }
 
         transform.position += transform.up * (Time.deltaTime * movespeed);
@@ -56,7 +57,7 @@ public class Projectile : MonoBehaviour
             if (piercing)
             {
                 _target = null;
-                heatSeeking = false;
+                // heatSeeking = false;
             }
             else
             {
