@@ -27,39 +27,13 @@ public class Shop : MonoBehaviour
         _shooter = GameManager.player.GetComponent<Shooter>();
     }
 
-    public void UpgradeDoubleShot(int cost)
+    public void BuyUpgrade(Upgrade upgrade)
     {
-        if (GameManager.gold >= cost)
+        if (GameManager.gold >= upgrade.cost)
         {
-            GameManager.gold -= cost;
-            _shooter.doubleShot = true;
-        }
-    }
-
-    public void UpgradePiercingShot(int cost)
-    {
-        if (GameManager.gold >= cost)
-        {
-            GameManager.gold -= cost;
-            _shooter.piercingShot = true;
-        }
-    }
-
-    public void UpgradeHeatSeekingShot(int cost)
-    {
-        if (GameManager.gold >= cost)
-        {
-            GameManager.gold -= cost;
-            _shooter.heatSeekingShot = true;
-        }
-    }
-
-    public void UpgradeBigShot(int cost)
-    {
-        if (GameManager.gold >= cost)
-        {
-            GameManager.gold -= cost;
-            _shooter.bigShot = true;
+            GameManager.gold -= upgrade.cost;
+            var shooter = GameManager.player.GetComponent<Shooter>();
+            shooter.Upgrade(upgrade);
         }
     }
 }

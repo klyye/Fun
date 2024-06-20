@@ -7,10 +7,6 @@ public class Shooter : MonoBehaviour
     [SerializeField] private float interval;
     private float _shotTimer;
     private ISet<Upgrade> upgrades = new HashSet<Upgrade>();
-    public bool doubleShot;
-    public bool heatSeekingShot;
-    public bool piercingShot;
-    public bool bigShot;
 
     public void Upgrade(Upgrade upgrade)
     {
@@ -28,22 +24,13 @@ public class Shooter : MonoBehaviour
         }
     }
 
-    private void SpawnProjectile()
+    public void Shoot()
     {
         var shot = Instantiate(proj);
-        // TODO LOOP THROUGH ALL PROJ UPGRADES
-        shot.heatSeeking = heatSeekingShot;
-        shot.piercing = piercingShot;
-
-    }
-
-    private void Shoot()
-    {
-        SpawnProjectile();
-        // TODO FIND SOME WAY TO NOT USE A BUNCH OF BOOLS
-        if (doubleShot)
+        foreach (var upgrade in upgrades)
         {
-            Invoke(nameof(SpawnProjectile), 0.1f);
+            if (upgrade.type == UpgradeType.OnSpawn)
+                upgrade.apply(shot);
         }
     }
 }
