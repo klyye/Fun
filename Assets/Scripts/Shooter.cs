@@ -20,6 +20,14 @@ public class Shooter : MonoBehaviour
         if (_shotTimer <= 0)
         {
             _shotTimer = interval;
+            foreach (var upgrade in upgrades)
+            {
+                if (upgrade.type == UpgradeType.OnInterval)
+                {
+                    // upgrade.apply();
+                }
+            }
+
             Shoot();
         }
     }
