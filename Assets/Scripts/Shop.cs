@@ -27,13 +27,11 @@ public class Shop : MonoBehaviour
         _shooter = GameManager.player.GetComponent<Shooter>();
     }
 
-    public void BuyUpgrade(Upgrade upgrade)
+    public void BuyUpgrade(ShopItem shopItem)
     {
-        if (GameManager.gold >= upgrade.cost)
+        if (GameManager.gold >= shopItem.cost)
         {
-            GameManager.gold -= upgrade.cost;
-            var shooter = GameManager.player.GetComponent<Shooter>();
-            shooter.Upgrade(upgrade);
+            GameManager.gold -= shopItem.cost;
         }
     }
 }

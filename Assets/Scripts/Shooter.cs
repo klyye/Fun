@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,11 +7,17 @@ public class Shooter : MonoBehaviour
     [SerializeField] private Projectile proj;
     [SerializeField] private float interval;
     private float _shotTimer;
-    private ISet<Upgrade> upgrades = new HashSet<Upgrade>();
+    private ISet<Action<Projectile>> _onHit = new HashSet<Action<Projectile>>();
+    private ISet<Action<Projectile>> _onSpawn = new HashSet<Action<Projectile>>();
 
-    public void Upgrade(Upgrade upgrade)
+    public void AddOnHitAction(Action<Projectile> action)
     {
-        upgrades.Add(upgrade);
+        _onHit.Add(action);
+    }
+
+    public void AddOnSpawnAction(Action<Projectile> action)
+    {
+        _onSpawn.Add(action);
     }
 
     // Update is called once per frame
@@ -20,25 +27,16 @@ public class Shooter : MonoBehaviour
         if (_shotTimer <= 0)
         {
             _shotTimer = interval;
-            foreach (var upgrade in upgrades)
-            {
-                if (upgrade.type == UpgradeType.OnInterval)
-                {
-                    // upgrade.apply();
-                }
-            }
-
             Shoot();
         }
     }
 
-    public void Shoot()
+    private void Shoot()
     {
         var shot = Instantiate(proj);
-        foreach (var upgrade in upgrades)
+        foreach (var upgrade in _onSpawn)
         {
-            if (upgrade.type == UpgradeType.OnSpawn)
-                upgrade.apply(shot);
+            upgrade(shot);
         }
     }
 }

@@ -11,6 +11,8 @@ public class Projectile : MonoBehaviour
     public bool heatSeeking;
     public bool piercing;
 
+    public bool IsClone { get; }
+
     private Transform _target;
 
     private void Awake()
