@@ -16,14 +16,6 @@ public class Enemy : MonoBehaviour
         Health.OnDeath += Die;
     }
 
-    private void Die()
-    {
-        // TODO: Bounty component?
-        GameManager.gold += bounty;
-        Debug.Log("count");
-        Destroy(gameObject);
-    }
-
     // Update is called once per frame
     private void Update()
     {
@@ -39,5 +31,13 @@ public class Enemy : MonoBehaviour
             player.Health.TakeDamage(1);
             Destroy(gameObject);
         }
+    }
+
+    private void Die()
+    {
+        // TODO: Bounty component?
+        GameManager.gold += bounty;
+        Debug.Log("count");
+        Destroy(gameObject);
     }
 }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -8,27 +6,24 @@ public class GameManager : MonoBehaviour
 
     public static Player player;
 
-    public static GameManager global => _instance;
-
-    private static GameManager _instance;
+    public static GameManager global { get; private set; }
 
     // Start is called before the first frame update
-    void Awake()
+    private void Awake()
     {
-        if (_instance != null && _instance != this)
+        if (global != null && global != this)
         {
             Destroy(gameObject);
         }
         else
         {
-            _instance = this;
+            global = this;
             player = FindObjectOfType<Player>();
         }
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-
     }
 }

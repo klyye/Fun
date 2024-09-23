@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Shop : MonoBehaviour
@@ -29,9 +26,6 @@ public class Shop : MonoBehaviour
 
     public void BuyUpgrade(ShopItem shopItem)
     {
-        if (GameManager.gold >= shopItem.cost)
-        {
-            GameManager.gold -= shopItem.cost;
-        }
+        if (GameManager.gold >= shopItem.cost) GameManager.gold -= shopItem.cost;
     }
 }

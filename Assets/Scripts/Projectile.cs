@@ -1,7 +1,4 @@
-using System;
-using System.Collections;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class Projectile : MonoBehaviour
 {
@@ -11,17 +8,38 @@ public class Projectile : MonoBehaviour
     public bool heatSeeking;
     public bool piercing;
 
-    public bool IsClone { get; }
-
     private Transform _target;
+
+    public bool IsClone { get; }
 
     private void Awake()
     {
-        transform.up = UnityEngine.Random.insideUnitCircle;
+        transform.up = Random.insideUnitCircle;
         // TODO THIS DOESNT WORK, HEATSEEKING ISNT SET UNTIL AFTER AWAKE
-        if (heatSeeking)
+        if (heatSeeking) _target = SeekTarget(4, 0, Enemy.LAYER_NAME);
+    }
+
+    // Update is called once per frame
+    private void Update()
+    {
+        if (_target) transform.up = _target.position - transform.position;
+
+        transform.position += transform.up * (Time.deltaTime * movespeed);
+        duration -= Time.deltaTime;
+        if (duration <= 0) Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        var enemy = other.GetComponent<Enemy>();
+        if (enemy != null)
         {
-            _target = SeekTarget(4, 0, Enemy.LAYER_NAME);
+            enemy.Health.TakeDamage(damage);
+            if (piercing)
+                _target = null;
+            // heatSeeking = false;
+            else
+                Destroy(gameObject);
         }
     }
 
@@ -32,39 +50,5 @@ public class Projectile : MonoBehaviour
         var hitInfo = Physics2D.CircleCast(
             tf.position, radius, tf.eulerAngles, dist, layerMask);
         return hitInfo.transform;
-    }
-
-    // Update is called once per frame
-    private void Update()
-    {
-        if (_target)
-        {
-            transform.up = _target.position - transform.position;
-        }
-
-        transform.position += transform.up * (Time.deltaTime * movespeed);
-        duration -= Time.deltaTime;
-        if (duration <= 0)
-        {
-            Destroy(gameObject);
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        var enemy = other.GetComponent<Enemy>();
-        if (enemy != null)
-        {
-            enemy.Health.TakeDamage(damage);
-            if (piercing)
-            {
-                _target = null;
-                // heatSeeking = false;
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
-        }
     }
 }
