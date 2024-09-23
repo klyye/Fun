@@ -17,15 +17,18 @@ public class Shop : MonoBehaviour
      * double shot -> on spawn
      * spiral shot -> while traveling
      */
-    private Shooter _shooter;
 
     private void Start()
     {
-        _shooter = GameManager.player.GetComponent<Shooter>();
     }
 
-    public void BuyUpgrade(ShopItem shopItem)
+    public void BuyUpgrade(Upgrade upgrade)
     {
-        if (GameManager.gold >= shopItem.cost) GameManager.gold -= shopItem.cost;
+        if (GameManager.gold >= upgrade.cost)
+        {
+            GameManager.gold -= upgrade.cost;
+            Instantiate(upgrade, GameManager.player.transform);
+        }
+
     }
 }

@@ -10,8 +10,6 @@ public class Projectile : MonoBehaviour
 
     private Transform _target;
 
-    public bool IsClone { get; }
-
     private void Awake()
     {
         transform.up = Random.insideUnitCircle;

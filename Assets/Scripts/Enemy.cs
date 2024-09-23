@@ -37,7 +37,6 @@ public class Enemy : MonoBehaviour
     {
         // TODO: Bounty component?
         GameManager.gold += bounty;
-        Debug.Log("count");
         Destroy(gameObject);
     }
 }

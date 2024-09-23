@@ -8,7 +8,6 @@ public class GameManager : MonoBehaviour
 
     public static GameManager global { get; private set; }
 
-    // Start is called before the first frame update
     private void Awake()
     {
         if (global != null && global != this)
@@ -18,8 +17,12 @@ public class GameManager : MonoBehaviour
         else
         {
             global = this;
-            player = FindObjectOfType<Player>();
         }
+        player = FindObjectOfType<Player>();
+    }
+
+    private void Start()
+    {
     }
 
     // Update is called once per frame
