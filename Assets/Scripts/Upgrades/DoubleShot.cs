@@ -9,12 +9,12 @@ public class DoubleShot: Upgrade
         shooter.AddOnSpawnAction(DoubleShotAction);
     }
 
-    private void DoubleShotAction(Projectile proj)
+    private void DoubleShotAction(StraightMovement proj)
     {
         StartCoroutine(DoubleShotCoroutine(proj));
     }
 
-    private IEnumerator DoubleShotCoroutine(Projectile proj)
+    private IEnumerator DoubleShotCoroutine(StraightMovement proj)
     {
         yield return new WaitForSeconds(0.1f);
         Instantiate(proj);

@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
         {
             global = this;
         }
-        player = FindObjectOfType<Player>();
+        player = FindAnyObjectByType<Player>();
     }
 
     private void Start()
