@@ -1,6 +1,8 @@
 # Architecture Ideas
-  ideas:
- * AN UPGRADE WILL JUST BE A COST AND A LIST OF BEHAVIORS
+ * AN UPGRADE WILL JUST BE A COST AND A LIST OF BEHAVIORS AND ACTIONS
+ * ACTIONS ARE THINGS THAT TRIGGER I.E. EXPLOSIONS, SPAWNING, ETC
+ * BEHAVIORS ARE THINGS THAT CONSTANTLY MODIFY BEHAVIOR, I.E. SPEED, DIRECTION, ETC
+## upgrade ideas
  * exploding bullets -> on hit
  * poison/burn/dot -> on hit
  * bullet fractures into more bullets -> on hit

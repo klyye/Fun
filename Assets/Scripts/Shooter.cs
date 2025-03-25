@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Shooter : MonoBehaviour
 {
-    [SerializeField] private StraightMovement proj;
+    [SerializeField] private GameObject proj;
     [SerializeField] private float interval;
-    private readonly ISet<Action<StraightMovement>> _onHit = new HashSet<Action<StraightMovement>>();
-    private readonly ISet<Action<StraightMovement>> _onSpawn = new HashSet<Action<StraightMovement>>();
+    private readonly ISet<Action<GameObject>> _onHit = new HashSet<Action<GameObject>>();
+    private readonly ISet<Action<GameObject>> _onSpawn = new HashSet<Action<GameObject>>();
     private float _shotTimer;
 
     // Update is called once per frame
@@ -21,12 +21,12 @@ public class Shooter : MonoBehaviour
         }
     }
 
-    public void AddOnHitAction(Action<StraightMovement> action)
+    public void AddOnHitAction(Action<GameObject> action)
     {
         _onHit.Add(action);
     }
 
-    public void AddOnSpawnAction(Action<StraightMovement> action)
+    public void AddOnSpawnAction(Action<GameObject> action)
     {
         _onSpawn.Add(action);
     }
