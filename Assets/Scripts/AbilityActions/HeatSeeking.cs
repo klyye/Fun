@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// TODO
 public class HeatSeeking : Upgrade
 {
     // Start is called before the first frame update

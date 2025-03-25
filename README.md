@@ -15,3 +15,9 @@
  * piercing shot -> on hit
  * double shot -> on spawn
  * spiral shot -> while traveling
+
+# TODO list
+- [ ] refactor shooter.cs to be a behavior (maybe?)
+- [ ] add a basic + atk spd upgrade to make use of shooter.cs modularity
+- explore scriptableobject system
+- refactor upgrade.cs to use scriptableobjects instead of having a monobehavior per upgrade
