@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Shooter : MonoBehaviour
 {
-    [SerializeField] private GameObject proj;
+    public GameObject proj;
     [SerializeField] private float interval;
     private readonly ISet<Action<GameObject>> _onHit = new HashSet<Action<GameObject>>();
     private readonly ISet<Action<GameObject>> _onSpawn = new HashSet<Action<GameObject>>();

@@ -1,4 +1,4 @@
-
+using System.Collections;
 using UnityEngine;
 
 public class DoubleShot : Upgrade
@@ -11,6 +11,12 @@ public class DoubleShot : Upgrade
 
     private void DoubleShotAction(GameObject proj)
     {
+        StartCoroutine(DoubleShotCoroutine(proj));
+    }
+
+    private IEnumerator DoubleShotCoroutine(GameObject proj)
+    {
+        yield return new WaitForSeconds(0.2f);
         if (proj)
             Instantiate(proj);
     }
