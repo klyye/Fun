@@ -4,6 +4,7 @@
  * ~~BEHAVIORS ARE THINGS THAT CONSTANTLY MODIFY BEHAVIOR, I.E. SPEED, DIRECTION, ETC~~
    * ~~BEHAVIORS MAY TRIGGER ACTIONS~~
  * no need to differentiate between actions and behaviors. just have upgrades with a cost that apply some thingy to the player
+ * separate "upgrade" classes to store the cost and actually apply the upgrade
 ## upgrade ideas
  * exploding bullets -> on hit
  * poison/burn/dot -> on hit

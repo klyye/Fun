@@ -2754,13 +2754,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1922633964}
         m_TargetAssemblyTypeName: Shop, Assembly-CSharp
-        m_MethodName: UpgradePiercingShot
-        m_Mode: 3
+        m_MethodName: BuyUpgrade
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 587387153671922617, guid: f090971d40689714b8dbae9bab1c0dc7, type: 3}
+          m_ObjectArgumentAssemblyTypeName: Upgrade, Assembly-CSharp
           m_IntArgument: 10
           m_FloatArgument: 0
           m_StringArgument: 
