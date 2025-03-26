@@ -20,7 +20,6 @@ public class DamageOnHit : MonoBehaviour
         if (enemy != null)
         {
             enemy.Health.TakeDamage(damage);
-            Destroy(gameObject);
         }
     }
 }

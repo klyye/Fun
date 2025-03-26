@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class DoubleShot : Upgrade
+public class DoubleShotUpgrade : Upgrade
 {
     public void Start()
     {
@@ -16,7 +16,7 @@ public class DoubleShot : Upgrade
 
     private IEnumerator DoubleShotCoroutine(GameObject proj)
     {
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.3f);
         if (proj)
             Instantiate(proj);
     }

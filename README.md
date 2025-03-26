@@ -1,8 +1,9 @@
 # Architecture Ideas
- * AN UPGRADE WILL JUST BE A COST AND A LIST OF BEHAVIORS AND ACTIONS
- * ACTIONS ARE THINGS THAT ARE TRIGGERED I.E. EXPLOSIONS, SPAWNING, ETC
- * BEHAVIORS ARE THINGS THAT CONSTANTLY MODIFY BEHAVIOR, I.E. SPEED, DIRECTION, ETC
-   * BEHAVIORS MAY TRIGGER ACTIONS
+ * ~~AN UPGRADE WILL JUST BE A COST AND A LIST OF BEHAVIORS AND ACTIONS~~
+ * ~~ACTIONS ARE THINGS THAT ARE TRIGGERED I.E. EXPLOSIONS, SPAWNING, ETC~~
+ * ~~BEHAVIORS ARE THINGS THAT CONSTANTLY MODIFY BEHAVIOR, I.E. SPEED, DIRECTION, ETC~~
+   * ~~BEHAVIORS MAY TRIGGER ACTIONS~~
+ * no need to differentiate between actions and behaviors. just have upgrades with a cost that apply some thingy to the player
 ## upgrade ideas
  * exploding bullets -> on hit
  * poison/burn/dot -> on hit
@@ -11,9 +12,9 @@
  * slow effect -> on hit
  * critical hits -> on hit
  * GMP/LMP -> on spawn
- * heat seeking -> while traveling
+ * ~~heat seeking -> while traveling~~
  * piercing shot -> on hit
- * double shot -> on spawn
+ * ~~double shot -> on spawn~~
  * spiral shot -> while traveling
 
 # TODO list
