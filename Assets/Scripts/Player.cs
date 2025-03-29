@@ -1,9 +1,11 @@
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
 [RequireComponent(typeof(Health))]
 public class Player : MonoBehaviour
 {
+    private ISet<Upgrade> upgrades = new HashSet<Upgrade>();
     public Health Health { get; private set; }
 
     private void Awake()
@@ -12,16 +14,15 @@ public class Player : MonoBehaviour
         Health.OnDeath += QuitGame;
     }
 
-
-    // Start is called before the first frame update
-    private void Start()
+    public void UpgradePlayer(Upgrade upgrade)
     {
+        if (!upgrades.Contains(upgrade))
+        {
+            Instantiate(upgrade, transform);
+            upgrades.Add(upgrade);
+        }
     }
 
-    // Update is called once per frame
-    private void Update()
-    {
-    }
 
     /// <summary>
     ///     https://discussions.unity.com/t/application-quit-not-working/130493/6
