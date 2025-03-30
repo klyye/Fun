@@ -6,7 +6,7 @@
  * no need to differentiate between actions and behaviors. just have upgrades with a cost that apply some thingy to the player
  * separate "upgrade" classes to store the cost and actually apply the upgrade
 ## upgrade ideas
-- [ ]exploding bullets -> on hit
+- [ ] exploding bullets -> on hit
 - [ ] poison/burn/dot -> on hit
 - [ ] bullet fractures into more bullets -> on hit
 - [ ] BIG bullet size -> on spawn

@@ -30,6 +30,7 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        // todo add damage number effect
         _health -= damage;
         slider.value = _health;
         if (_health <= 0) OnDeath?.Invoke();

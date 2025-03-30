@@ -1,5 +1,7 @@
 using UnityEngine;
+using UnityEngine.UI;
 
+[RequireComponent(typeof(HorizontalOrVerticalLayoutGroup))]
 public class Shop : MonoBehaviour
 {
     // TODO: randomly generate some items to be in the shop
