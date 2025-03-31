@@ -7,4 +7,5 @@ using UnityEngine;
 public abstract class Upgrade: MonoBehaviour
 {
 	public int cost;
+	public string name;
 }
