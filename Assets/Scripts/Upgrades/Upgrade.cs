@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 /// <summary>
 ///		unfortunately i tried scriptableobjects and having a one-field abstract class somehow turned out to be less
@@ -7,5 +8,5 @@ using UnityEngine;
 public abstract class Upgrade: MonoBehaviour
 {
 	public int cost;
-	public string name;
+	public string upgradeName;
 }

@@ -1480,7 +1480,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &961437219
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1539,6 +1539,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonPrefab: {fileID: 1316800369501063169, guid: e5b735573b8dbc94980ce9f932a899e8, type: 3}
+  upgrades:
+  - {fileID: 6469627833878478596, guid: 55e2de8c837032344a79107bd710f025, type: 3}
+  - {fileID: 8015970621853588886, guid: 4eae538724647d444911294a8c0f4bcd, type: 3}
+  - {fileID: 5210311701712229106, guid: 0e11b2d2b5fe0dd44a66c629c1031126, type: 3}
+  - {fileID: 587387153671922617, guid: f090971d40689714b8dbae9bab1c0dc7, type: 3}
 --- !u!1 &1153618183
 GameObject:
   m_ObjectHideFlags: 0

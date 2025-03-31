@@ -45,4 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 10
+  upgradeName: Heat Seeking
   _refreshDuration: 0.5

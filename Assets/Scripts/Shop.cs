@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,12 +15,15 @@ public class Shop : MonoBehaviour
         // generate 3 buttons
         for (int i = 0; i < 3; i++)
         {
+            // todo prevent duplicates
             var index = Random.Range(0, upgrades.Count);
             var upgrade = upgrades[index];
             var button = Instantiate(buttonPrefab, transform);
             // fill in button text
-
+            var text = GetComponentInChildren<TMP_Text>();
+            text.text = $"{upgrade.upgradeName} ${upgrade.cost}";
             // hook up button events
+            button.onClick.AddListener(() => BuyUpgrade(upgrade));
         }
     }
 
