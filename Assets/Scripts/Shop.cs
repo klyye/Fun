@@ -6,7 +6,6 @@ using UnityEngine.UI;
 [RequireComponent(typeof(HorizontalOrVerticalLayoutGroup))]
 public class Shop : MonoBehaviour
 {
-    // TODO: randomly generate some items to be in the shop
     [SerializeField] private Button buttonPrefab;
     [SerializeField] private List<Upgrade> upgrades;
 
