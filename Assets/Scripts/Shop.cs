@@ -12,15 +12,22 @@ public class Shop : MonoBehaviour
 
     private void Awake()
     {
+        var seen = new HashSet<int>();
         // generate 3 buttons
-        for (int i = 0; i < 3; i++)
+        for (var i = 0; i < 3; i++)
         {
-            // todo prevent duplicates
             var index = Random.Range(0, upgrades.Count);
+
+            while (seen.Contains(index))
+            {
+                index = Random.Range(0, upgrades.Count);
+            }
+
+            seen.Add(index);
             var upgrade = upgrades[index];
             var button = Instantiate(buttonPrefab, transform);
             // fill in button text
-            var text = GetComponentInChildren<TMP_Text>();
+            var text = button.GetComponentInChildren<TMP_Text>();
             text.text = $"{upgrade.upgradeName} ${upgrade.cost}";
             // hook up button events
             button.onClick.AddListener(() => BuyUpgrade(upgrade));
