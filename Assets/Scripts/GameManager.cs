@@ -50,6 +50,24 @@ public class GameManager : MonoBehaviour
      * kinda want to keep the number of towers low, like you get 1 per act or something
      * at start of act, place towers
      * instead of campfires, you get to reposition
+     * or maybe the whole tower defense/roguelike this is not in service of the vision of "least time to fun"
+     * keep it SIMPLE, like arcade game scope
+     * what makes vampire survivors fun?
+     * - the actual interaction is just moving around, not that fun, just gives you something to do
+     * - seeing new upgrades and new enemies is novel
+     * - the chaos of it all, tons of projectiles and enemies
+     *
+     * maybe just have your towers fire towards your mouse, or towards a placed reticle a la dartling gunner btd6
      */
 
+    /**
+     * TODO LIST WITH THE VISION:
+     * When the game starts, place your first tower
+     * Select your first big upgrade/weapon
+     * Select the first wave
+     * make the towers shoot towards the mouse
+     * choose next upgrade, next wave, repeat
+     * maybe make a boss, then after that you get two towers
+     * powerups? pause? reposition?
+     */
 }
